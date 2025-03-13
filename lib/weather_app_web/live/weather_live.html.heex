@@ -1,0 +1,30 @@
+<div class="flex items-center justify-center">
+  <div class="bg-white bg-opacity-20 backdrop-blur-lg p-6 rounded-2xl shadow-xl w-full max-w-md">
+    <h1 class="text-3xl font-bold text-center">🌦️ Weather App</h1>
+
+    <form phx-submit="get_weather" class="mt-4 flex">
+      <input
+        type="text"
+        name="city"
+        placeholder="Enter city"
+        class="flex-1 p-2 rounded-l-lg border-0 text-black"
+      />
+      <button type="submit" class="bg-yellow-400 text-black px-4 py-2 rounded-r-lg font-bold">
+        Get Weather
+      </button>
+    </form>
+
+    <%= if @weather && @weather["weather"] do %>
+      <div class="mt-6 text-center">
+        <h2 class="text-2xl font-semibold">{@weather["name"]}</h2>
+        <p class="text-lg">🌡️ {@weather["main"]["temp"]}°C</p>
+        <p class="text-lg">💨 Humidity: {@weather["main"]["humidity"]}%</p>
+        <p class="text-lg">
+          ☁️ Condition: {@weather["weather"] |> hd() |> Map.get("description")}
+        </p>
+      </div>
+    <% else %>
+      No weather data available
+    <% end %>
+  </div>
+</div>
