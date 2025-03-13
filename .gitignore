@@ -36,4 +36,4 @@ npm-debug.log
 /assets/node_modules/
 
 .env
-OPENWEATHER_API_KEY="b410f843c8c86a236164128ba6823284"
+OPENWEATHER_API_KEY=""
